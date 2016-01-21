@@ -1,0 +1,29 @@
+<section id="todos">
+  <header>
+    <h2><%= @lesson[:lesson_name] %></h2>
+    <p><a href="/lessons/<%= @lesson_id + 1 %>">Next lesson --></a></p>
+  </header>
+
+  <ul>
+    <% @lesson[:notes].each do |note| %>
+    <li>
+      <h3><%= note[:body] %></h3>
+    </li>
+    <p><a href="/lessons/?/edit">Edit</a></p>
+    <% end %>
+  </ul>
+</section>
+
+<form action="/lessons/<%= @lesson_id %>/notes" method="post">
+  <dl>
+    <dt>
+      <label for="note">Note</label>
+    </dt>
+    <dd>
+      <input name="note" placeholder="Topic" type="text" value="<%= params[:note] %>">
+    </dd>
+  </dl>
+  <fieldset class="actions">
+    <input type="submit" value="Add">
+  </fieldset>
+</form>

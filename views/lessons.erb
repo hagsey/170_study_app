@@ -1,0 +1,10 @@
+
+<ul id="lists">
+  <% @lessons.each_with_index do |lesson, index| %>
+    <li class="">
+      <a href="/lessons/<%= index %>">
+        <h2><%= lesson %></h2>
+      </a>
+    </li>
+  <% end %>
+</ul>
